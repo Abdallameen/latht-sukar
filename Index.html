@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Enhanced SEO Title (Arabic + English) -->
+  <title>لذة سكر | حلويات فاخرة، شوكولاتة وهدايا في ينبع - Lazzat Sukkar</title>
+  <!-- SEO Meta Description (rich keywords) -->
+  <meta name="description" content="لذة سكر في ينبع: وجهتك الأولى لأفخم الحلويات، الشوكولاتة البلجيكية، وتنسيقات الزهور الطبيعية. نضفي لمسة من الفخامة على مناسباتكم السعيدة.">
+  <meta name="keywords" content="حلويات ينبع, شوكولاتة فاخرة ينبع, محلات ورد ينبع, هدايا ينبع, لذة سكر, حلويات مناسبات, ورد وشوكولاتة ينبع">
+
+  <!-- Open Graph (for social media) -->
+  <meta property="og:title" content="لذة سكر | Luxury Desserts & Flowers in Yanbu">
+  <meta property="og:description" content="استمتع بتجربة حلويات فريدة وتنسيقات زهور راقية في قلب ينبع.">
+  <meta property="og:image" content="https://placehold.co/1200x630/b78c5a/3e2723?text=Lazzat+Sukkar"> <!-- placeholder - replace with actual image URL -->
+  <meta property="og:url" content="https://yourdomain.com">
+  <meta property="og:type" content="website">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Schema.org JSON-LD (Structured Data for Store) -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "لذة سكر - Lazzat Sukkar",
+  "description": "متجر متخصص في الحلويات الفاخرة، الشوكولاتة، وتنسيق الزهور في ينبع.",
+  "image": "https://placehold.co/600x400/b78c5a/3e2723?text=Lazzat+Sukkar+Logo", 
+  "url": "https://yourdomain.com",
+  "telephone": "+966501234567",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "حي الشاطئ / شارع الأمير نايف",
+    "addressLocality": "Yanbu",
+    "addressRegion": "Al Madinah",
+    "postalCode": "46411",
+    "addressCountry": "SA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 24.0232, 
+    "longitude": 38.19
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "16:00",
+      "closes": "23:59"
+    }
+  ],
+  "sameAs": [
+    "https://instagram.com/lazzatsukkar"
+  ],
+  "priceRange": "$$"
+}
+</script>
+
+  <!-- Google Fonts: elegant serif & modern sans + Arabic fallback (Tajawal) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ===== RESET & VARIABLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --brown-dark: #3e2723;      /* dark chocolate */
+      --cream: #faf0e6;            /* soft cream */
+      --gold: #b78c5a;             /* warm gold */
+      --pink-soft: #f8d7da;        /* soft pink accent */
+      --brown-light: #6d4c41;
+      --white-soft: #fff9f5;
+      --shadow: 0 20px 35px -8px rgba(0,0,0,0.15);
+      --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    body {
+      font-family: 'Montserrat', 'Tajawal', sans-serif;
+      background-color: var(--cream);
+      color: var(--brown-dark);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, .logo, .hero-title, .section-header {
+      font-family: 'Cormorant Garamond', 'Tajawal', serif;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .section-header {
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      color: var(--brown-dark);
+    }
+    .section-header:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0.8rem auto 0;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* ===== LOADING ANIMATION ===== */
+    #loader {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: var(--cream);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      transition: opacity 0.6s ease, visibility 0.6s;
+    }
+    .loader-spinner {
+      width: 70px;
+      height: 70px;
+      border: 4px solid var(--pink-soft);
+      border-top: 4px solid var(--gold);
+      border-radius: 50%;
+      animation: spin 1.2s linear infinite;
+    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    /* ===== STICKY HEADER ===== */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 240, 230, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      padding: 0.8rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--brown-dark);
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo span {
+      color: var(--gold);
+      font-size: 1.2rem;
+      margin-left: 4px;
+    }
+    .nav-menu {
+      display: flex;
+      gap: 2.5rem;
+      font-weight: 400;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .nav-menu a {
+      position: relative;
+      padding: 0.3rem 0;
+    }
+    .nav-menu a:after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: 0.3s;
+    }
+    .nav-menu a:hover:after {
+      width: 100%;
+    }
+    .lang-toggle {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-left: 2rem;
+    }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--brown-dark);
+      padding: 0.3rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .lang-btn.active {
+      background: var(--gold);
+      color: white;
+      border-color: var(--gold);
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--brown-dark);
+    }
+    /* ===== HERO ===== */
+    .hero {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero-video {
+      position: absolute;
+      top: 50%; left: 50%;
+      min-width: 100%; min-height: 100%;
+      width: auto; height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: -2;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.25);
+      z-index: -1;
+    }
+    .hero-content {
+      color: white;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      padding: 1.5rem;
+    }
+    .hero-title {
+      font-size: clamp(2.5rem, 12vw, 5.5rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .hero-sub {
+      font-size: 1.3rem;
+      letter-spacing: 3px;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      color: var(--pink-soft);
+    }
+    .btn-explore {
+      display: inline-block;
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      padding: 1rem 3rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      transition: var(--transition);
+      backdrop-filter: blur(5px);
+      border-radius: 40px;
+      cursor: pointer;
+    }
+    .btn-explore:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -10px rgba(183,140,90,0.5);
+    }
+    /* ===== PARALLAX EFFECT ===== */
+    .parallax {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    /* ===== SECTIONS ===== */
+    .section {
+      padding: 5rem 8%;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    /* featured desserts */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+    .premium-card {
+      background: var(--white-soft);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    .premium-card:hover {
+      transform: scale(1.02) translateY(-10px);
+      box-shadow: 0 30px 45px -12px rgba(62,39,35,0.3);
+    }
+    .card-img {
+      height: 280px;
+      background-size: cover;
+      background-position: center;
+    }
+    .card-content {
+      padding: 1.8rem 1.5rem 2rem;
+    }
+    .card-content h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: var(--brown-dark);
+    }
+    .card-content p {
+      color: #5d4a3a;
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+    }
+    .gold-border {
+      width: 50px; height: 2px; background: var(--gold); margin: 1rem 0 0.8rem;
+    }
+    /* gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      cursor: pointer;
+      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2);
+    }
+    .gallery-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    .gallery-item:after {
+      content: '🔍';
+      position: absolute; bottom: 10px; right: 15px;
+      font-size: 1.5rem; opacity: 0; color: white;
+      transition: 0.3s;
+      text-shadow: 0 0 10px black;
+    }
+    .gallery-item:hover:after {
+      opacity: 1;
+    }
+    /* lightbox (simple) */
+    .lightbox {
+      display: none;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 1000;
+      justify-content: center; align-items: center;
+    }
+    .lightbox.active {
+      display: flex;
+    }
+    .lightbox img {
+      max-width: 90%; max-height: 85%;
+      border: 4px solid var(--cream);
+      border-radius: 8px;
+    }
+    .close-lightbox {
+      position: absolute; top: 30px; right: 50px;
+      font-size: 3rem; color: white; cursor: pointer;
+    }
+    /* video experience */
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .video-card {
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #000;
+    }
+    .video-card video {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+      transition: var(--transition);
+      opacity: 0.9;
+    }
+    .video-card:hover video {
+      opacity: 1;
+      transform: scale(1.02);
+    }
+    /* story & testimonials */
+    .story-wrap {
+      display: flex;
+      gap: 4rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .story-text {
+      flex: 1 1 300px;
+      font-size: 1.2rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+    .story-text p:first-child:first-letter {
+      font-size: 4rem;
+      float: left;
+      margin-right: 1rem;
+      color: var(--gold);
+      font-family: serif;
+    }
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .testimonial {
+      background: rgba(255,255,240,0.6);
+      padding: 2rem;
+      border-radius: 30px;
+      box-shadow: 0 10px 25px -10px rgba(0,0,0,0.1);
+      border: 1px solid rgba(183,140,90,0.2);
+    }
+    .testimonial i {
+      color: var(--gold);
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+    .testimonial p {
+      font-style: italic;
+    }
+    /* location & contact */
+    .map-container {
+      width: 100%;
+      height: 350px;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin: 3rem 0 2rem;
+    }
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem;
+      margin: 3rem 0 1rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 1.3rem;
+      background: var(--white-soft);
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .contact-item i {
+      color: var(--gold);
+      font-size: 1.8rem;
+    }
+    .whatsapp-btn {
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+    .whatsapp-btn:hover {
+      background: #128C7E;
+      transform: scale(1.05);
+    }
+    /* footer */
+    footer {
+      text-align: center;
+      padding: 2rem 5%;
+      background: var(--brown-dark);
+      color: var(--cream);
+    }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        background: var(--cream);
+        position: absolute;
+        top: 70px; right: 5%; left: 5%;
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+      .nav-menu.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .hero-title {
+        font-size: 3.2rem;
+      }
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+      .section-header {
+        font-size: 2.3rem;
+      }
+      .lang-toggle {
+        margin-left: 0;
+      }
+    }
+    /* RTL support */
+    body.rtl {
+      direction: rtl;
+      text-align: right;
+    }
+    body.rtl .story-text p:first-child:first-letter {
+      float: right;
+      margin-left: 1rem;
+      margin-right: 0;
+    }
+    body.rtl .gold-border {
+      margin: 1rem 0 0.8rem auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <!-- STICKY HEADER -->
+  <header class="sticky-header">
+    <div class="logo">
+      <span class="logo-ar">لذة سكر</span>
+      <span class="logo-en">Lazzat Sukkar</span> <!-- fixed typo from 'Latht' to 'Lazzat' -->
+    </div>
+    <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+    <nav class="nav-menu" id="navMenu">
+      <a href="#hero" data-en="Home" data-ar="الرئيسية">Home</a>
+      <a href="#featured" data-en="Signature" data-ar="الحلويات">Signature</a>
+      <a href="#gallery" data-en="Gallery" data-ar="معرض">Gallery</a>
+      <a href="#video" data-en="Cinema" data-ar="فيديو">Cinema</a>
+      <a href="#story" data-en="Story" data-ar="قصتنا">Story</a>
+      <a href="#contact" data-en="Contact" data-ar="اتصل بنا">Contact</a>
+    </nav>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="langEn">EN</button>
+      <button class="lang-btn" id="langAr">عربي</button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <video class="hero-video" autoplay muted loop playsinline poster="https://placehold.co/1600x900/f8d7da/3e2723?text=Lazzat+Sukkar">
+      <source src="https://player.vimeo.com/external/370331468.sd.mp4?s=90c2c13b7c9fa8a2f2d6aacd36e1c5b6b6fd92b5&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title" data-en="Lazzat Sukkar" data-ar="لذة سكر">Lazzat Sukkar</h1>
+      <p class="hero-sub" data-en="Luxury Desserts in Yanbu" data-ar="حلويات فاخرة في ينبع">Luxury Desserts in Yanbu</p>
+      <a href="#featured" class="btn-explore smooth" data-en="Explore Menu" data-ar="استكشف القائمة">Explore Menu</a>
+    </div>
+  </section>
+
+  <!-- FEATURED DESSERTS -->
+  <section id="featured" class="section">
+    <div class="container">
+      <h2 class="section-header" data-en="Signature Creations" data-ar="إبداعات مميزة">Signature Creations</h2>
+      <div class="featured-grid">
+        <div class="premium-card">
+          <div class="card-img" style="background-image: url('https://placehold.co/600x800/b78c5a/ffffff?text= pistachio+rose')"></div>
+          <div class="card-content">
+            <h3 data-en="Pistachio Rose" data-ar="فستق و ورد">Pistachio Rose</h3>
+            <div class="gold-border"></div>
+            <p data-en="Delicate rose cream with crushed pistachios, gold leaf finish." data-ar="كريم وردي ناعم مع فستق مطحون، و لمسة من ورق الذهب.">Delicate rose cream with crushed pistachios, gold leaf finish.</p>
+          </div>
+        </div>
+        <div class="premium-card">
+          <div class="card-img" style="background-image: url('https://placehold.co/600x800/3e2723/f8d7da?text=chocolate+ganache')"></div>
+          <div class="card-content">
+            <h3 data-en="Dark Ganache" data-ar="جاناش داكن">Dark Ganache</h3>
+            <div class="gold-border"></div>
+            <p data-en="72% single-origin chocolate, sea salt caramel heart." data-ar="شوكولاتة ٧٢٪ من منشأ واحد، قلب كراميل بملح البحر.">72% single-origin chocolate, sea salt caramel heart.</p>
+          </div>
+        </div>
+        <div class="premium-card">
+          <div class="card-img" style="background-image: url('https://placehold.co/600x800/f8d7da/3e2723?text=saffron+creme')"></div>
+          <div class="card-content">
+            <h3 data-en="Saffron Crème" data-ar="كريم زعفران">Saffron Crème</h3>
+            <div class="gold-border"></div>
+            <p data-en="Arabian saffron infused milk cream & honeycomb crunch." data-ar="كريم حليب بالزعفران العربي مع قطع عسل مقرمشة.">Arabian saffron infused milk cream & honeycomb crunch.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISUAL GALLERY + LIGHTBOX -->
+  <section id="gallery" class="section" style="background: #f9ede0;">
+    <div class="container">
+      <h2 class="section-header" data-en="Visual Poetry" data-ar="شعر بصري">Visual Poetry</h2>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item"><img src="https://placehold.co/600x800/b78c5a/ffffff?text=dessert+1" alt="Pistachio dessert" loading="lazy"></div>
+        <div class="gallery-item"><img src="https://placehold.co/600x800/3e2723/f8d7da?text=dessert+2" alt="Chocolate ganache" loading="lazy"></div>
+        <div class="gallery-item"><img src="https://placehold.co/600x800/f8d7da/3e2723?text=dessert+3" alt="Saffron creme" loading="lazy"></div>
+        <div class="gallery-item"><img src="https://placehold.co/600x800/b78c5a/3e2723?text=dessert+4" alt="Floral dessert" loading="lazy"></div>
+        <div class="gallery-item"><img src="https://placehold.co/600x800/3e2723/f8d7da?text=dessert+5" alt="Macarons" loading="lazy"></div>
+        <div class="gallery-item"><img src="https://placehold.co/600x800/f8d7da/3e2723?text=dessert+6" alt="Kunafa" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX CONTAINER -->
+  <div id="lightbox" class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <!-- VIDEO EXPERIENCE -->
+  <section id="video" class="section parallax" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://placehold.co/1400x600/3e2723/f8d7da?text=cinematic+background'); background-attachment: fixed;">
+    <div class="container" style="color: white;">
+      <h2 class="section-header" style="color: white;" data-en="The Art of Dessert" data-ar="فن الحلوى">The Art of Dessert</h2>
+      <div class="video-grid">
+        <div class="video-card">
+          <video autoplay muted loop playsinline poster="https://placehold.co/600x400/f8d7da/3e2723?text=video+1">
+            <source src="https://player.vimeo.com/external/366696530.sd.mp4?s=0b7c9b61d2b5bf9d48c1d24d0b24c3cd3d9a1e5b&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-card">
+          <video autoplay muted loop playsinline poster="https://placehold.co/600x400/3e2723/f8d7da?text=video+2">
+            <source src="https://player.vimeo.com/external/334187115.sd.mp4?s=81e0a86bce813105cdbb4b2012a58cb8a0d2c111&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section id="story" class="section">
+    <div class="container story-wrap">
+      <div class="story-text">
+        <h2 class="section-header" style="text-align: left; margin-bottom:1rem;" data-en="Our Story" data-ar="قصتنا">Our Story</h2>
+        <p data-en="In the heart of Yanbu, Lazzat Sukkar began with a simple obsession: to craft desserts that marry tradition with artistry. Every plate is a canvas—saffron from the orient, chocolate from equatorial forests, rose water passed down through generations. Our pâtissiers sculpt sweetness into edible poetry, each bite an invitation to linger." data-ar="في قلب ينبع، بدأت لذة سكر بهوس بسيط: صنع حلويات تمزج التقاليد بالفن. كل طبق هو لوحة - زعفران من الشرق، شوكولاتة من غابات استوائية، ماء ورد توارثته الأجيال. يشكل حلوانيونا الحلاوة إلى شعر صالح للأكل، كل قضمة دعوة للبقاء.">
+          In the heart of Yanbu, Lazzat Sukkar began with a simple obsession: to craft desserts that marry tradition with artistry. Every plate is a canvas—saffron from the orient, chocolate from equatorial forests, rose water passed down through generations. Our pâtissiers sculpt sweetness into edible poetry, each bite an invitation to linger.
+        </p>
+        <p style="margin-top:1.5rem;" data-en="We believe dessert is not a course, it’s a memory. From gold-dusted macarons to pistachio-layered kunafa, we invite you to taste the passion." data-ar="نحن نؤمن أن الحلوى ليست مجرد طبق، بل ذاكرة. من الماكرون المغطى بالذهب إلى الكنافة بطبقات الفستق، ندعوكم لتذوق الشغف.">
+          We believe dessert is not a course, it’s a memory. From gold-dusted macarons to pistachio-layered kunafa, we invite you to taste the passion.
+        </p>
+      </div>
+      <div style="flex: 0 0 200px; text-align: center;">
+        <i class="fas fa-crown" style="font-size: 6rem; color: var(--gold); opacity: 0.4;"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMER EXPERIENCE -->
+  <section class="section" style="background: #faf0e6;">
+    <div class="container">
+      <h2 class="section-header" data-en="Sweet Whispers" data-ar="همسات حلوة">Sweet Whispers</h2>
+      <div class="testimonials">
+        <div class="testimonial"><i class="fas fa-quote-right"></i><p data-en="“The most elegant dessert experience in Yanbu. The saffron crème is otherworldly.”" data-ar="“أرقى تجربة حلويات في ينبع. كريم الزعفران عالم آخر.”">“The most elegant dessert experience in Yanbu. The saffron crème is otherworldly.”</p><h4>— Noura A.</h4></div>
+        <div class="testimonial"><i class="fas fa-quote-right"></i><p data-en="“Every detail, from the plating to the flavor, screams luxury. Worth every riyal.”" data-ar="“كل تفصيلة، من التقديم إلى النكهة، تفوح بالفخامة. تستحق كل ريال.”">“Every detail, from the plating to the flavor, screams luxury. Worth every riyal.”</p><h4>— Khalid M.</h4></div>
+        <div class="testimonial"><i class="fas fa-quote-right"></i><p data-en="“A hidden gem by the Red Sea. Their chocolate ganache is pure silk.”" data-ar="“جوهرة مخفية على البحر الأحمر. جاناش الشوكولاتة لديهم حرير خالص.”">“A hidden gem by the Red Sea. Their chocolate ganache is pure silk.”</p><h4>— Leena H.</h4></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION & CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-header" data-en="Find Us in Yanbu" data-ar="تجدنا في ينبع">Find Us in Yanbu</h2>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d464901.50643206444!2d37.919307!3d24.469511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15b9cf3bb6a11b31%3A0x7f3bcb7a3a69d8e2!2sYanbu%20Saudi%20Arabia!5e0!3m2!1sen!2s!4v1650000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <div class="contact-bar">
+        <a href="https://wa.me/966501234567" target="_blank" class="contact-item whatsapp-btn"><i class="fab fa-whatsapp"></i> <span data-en="WhatsApp" data-ar="واتساب">WhatsApp</span></a>
+        <a href="https://instagram.com/lazzatsukkar" class="contact-item"><i class="fab fa-instagram"></i> @lazzatsukkar</a>
+        <div class="contact-item"><i class="fas fa-phone-alt"></i> +966 50 123 4567</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p data-en="© 2025 Lazzat Sukkar — Yanbu, Saudi Arabia. crafted with" data-ar="© ٢٠٢٥ لذة سكر — ينبع، السعودية. صُنع بحب">© 2025 Lazzat Sukkar — Yanbu, Saudi Arabia. crafted with <i class="fas fa-heart" style="color: var(--pink-soft);"></i></p>
+  </footer>
+
+  <script>
+    (function() {
+      // smooth scroll
+      document.querySelectorAll('.smooth, .nav-menu a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if(targetId && targetId !== '#') {
+            const targetEl = document.querySelector(targetId);
+            if(targetEl) {
+              targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      });
+
+      // loader
+      window.addEventListener('load', function() {
+        const loader = document.getElementById('loader');
+        loader.style.opacity = '0';
+        setTimeout(() => { loader.style.visibility = 'hidden'; }, 600);
+      });
+
+      // mobile menu toggle
+      const toggle = document.getElementById('menuToggle');
+      const navMenu = document.getElementById('navMenu');
+      toggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+      });
+
+      // close mobile menu on link click
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+        });
+      });
+
+      // LIGHTBOX
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const closeLightbox = document.querySelector('.close-lightbox');
+
+      document.querySelectorAll('.gallery-item img').forEach(img => {
+        img.addEventListener('click', e => {
+          lightbox.classList.add('active');
+          lightboxImg.src = img.src;
+        });
+      });
+
+      closeLightbox.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+      });
+
+      lightbox.addEventListener('click', (e) => {
+        if(e.target === lightbox) lightbox.classList.remove('active');
+      });
+
+      // sticky header
+      const header = document.querySelector('.sticky-header');
+      window.addEventListener('scroll', () => {
+        if(window.scrollY > 50) {
+          header.style.background = 'rgba(250, 240, 230, 0.95)';
+        } else {
+          header.style.background = 'rgba(250, 240, 230, 0.85)';
+        }
+      });
+
+      // BILINGUAL TOGGLE
+      const langEn = document.getElementById('langEn');
+      const langAr = document.getElementById('langAr');
+      const body = document.body;
+      
+      // elements with data-en and data-ar
+      const elementsToTranslate = document.querySelectorAll('[data-en]');
+
+      function setLanguage(lang) {
+        if (lang === 'ar') {
+          body.classList.add('rtl');
+          langEn.classList.remove('active');
+          langAr.classList.add('active');
+        } else {
+          body.classList.remove('rtl');
+          langAr.classList.remove('active');
+          langEn.classList.add('active');
+        }
+
+        elementsToTranslate.forEach(el => {
+          const enText = el.getAttribute('data-en');
+          const arText = el.getAttribute('data-ar');
+          if (lang === 'ar' && arText) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'BUTTON') {
+              el.value = arText;
+            } else {
+              el.textContent = arText;
+            }
+          } else if (lang === 'en' && enText) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'BUTTON') {
+              el.value = enText;
+            } else {
+              el.textContent = enText;
+            }
+          }
+        });
+      }
+
+      langEn.addEventListener('click', () => setLanguage('en'));
+      langAr.addEventListener('click', () => setLanguage('ar'));
+
+      // initial language: English
+      setLanguage('en');
+    })();
+  </script>
+  <!-- Placeholder note: images/videos are from placeholder services. Replace with actual assets in /assets folder -->
+  <!-- For real project, put mp4/jpg inside assets/videos & assets/images and update src -->
+</body>
+</html>
