@@ -471,3 +471,46 @@
     body.rtl .gold-border {
       margin: 1rem 0 0.8rem auto;
     }
+
+    /* تنسيق نافذة التنبيه */
+.security-modal {
+    display: none; 
+    position: fixed;
+    z-index: 9999; /* لضمان ظهوره فوق كل شيء */
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+.modal-content {
+    background-color: #fff9f5;
+    margin: 15% auto;
+    padding: 35px 25px;
+    border-top: 5px solid #d9534f; /* خط أحمر للتنبيه */
+    width: 90%;
+    max-width: 450px;
+    border-radius: 20px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+.modal-header i { color: #d9534f; font-size: 3.5rem; margin-bottom: 15px; }
+.modal-header h2 { color: #3e2723; margin-bottom: 10px; font-family: 'Tajawal', sans-serif; }
+.modal-body p { color: #5d4a3a; line-height: 1.6; font-size: 1.05rem; }
+.close-modal {
+    position: absolute; right: 20px; top: 15px;
+    font-size: 30px; font-weight: bold; color: #6d4c41; cursor: pointer;
+}
+.btn-map-fix {
+    display: inline-block;
+    margin-top: 25px;
+    background-color: #b78c5a; /* ذهبي المحل */
+    color: white !important;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(183, 140, 90, 0.4);
+}
+.btn-map-fix:hover { background-color: #3e2723; transform: translateY(-3px); }
+
