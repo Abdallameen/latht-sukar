@@ -102,6 +102,32 @@
         });
       }
 
+
+        window.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('securityModal');
+    const closeBtn = document.querySelector('.close-modal');
+
+    // إظهار الرسالة بعد ثانية من الدخول
+    setTimeout(() => {
+        // نتحقق إذا كان العميل قد أغلق الرسالة سابقاً في نفس الجلسة
+        if (!sessionStorage.getItem('modalDismissed')) {
+            modal.style.display = 'block';
+        }
+    }, 1000);
+
+    closeBtn.onclick = () => {
+        modal.style.display = 'none';
+        sessionStorage.setItem('modalDismissed', 'true');
+    };
+
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+            sessionStorage.setItem('modalDismissed', 'true');
+        }
+    };
+});
+
       langEn.addEventListener('click', () => setLanguage('en'));
       langAr.addEventListener('click', () => setLanguage('ar'));
 
