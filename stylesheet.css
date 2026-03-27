@@ -426,6 +426,8 @@
     align-items: center;
     gap: 10px;
     padding: 20px 0;
+    background: var(--brown-dark);
+    color: var(--cream);
 }
 
 .footer-email {
